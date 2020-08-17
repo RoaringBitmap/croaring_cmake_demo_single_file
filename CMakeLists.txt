@@ -29,14 +29,16 @@ FetchContent_Declare(
 set(ENABLE_ROARING_TESTS OFF CACHE INTERNAL "")
 
 set(ROARING_BUILD_STATIC ON CACHE INTERNAL "")
-
 FetchContent_MakeAvailable(roaring)
 
+FetchContent_GetProperties(roaring)
+SET(CPP_ROARING_HEADERS ${roaring_SOURCE_DIR}/cpp/roaring64map.hh  ${roaring_SOURCE_DIR}/cpp/roaring.hh)
+file(COPY  ${CPP_ROARING_HEADERS} DESTINATION ${roaring_SOURCE_DIR}/include/roaring)
 
 
 file(WRITE main.cpp "
 #include <iostream>
-#include \"../cpp/roaring.hh\"
+#include \"roaring/roaring.hh\"
 int main() {
   Roaring r1;
   for (uint32_t i = 100; i < 1000; i++) {
