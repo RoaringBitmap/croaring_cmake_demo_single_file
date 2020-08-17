@@ -10,3 +10,13 @@ cmake --build build
 ./build/repro
 ./build/reproc
 ```
+
+If you are using Visual Studio, the instructions are nearly the same:
+
+
+```
+cmake -B build .
+cmake --build build --config Release
+./build/Release/repro
+./build/Release/reproc
+```
