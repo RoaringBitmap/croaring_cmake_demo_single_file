@@ -23,7 +23,7 @@ include(FetchContent)
 FetchContent_Declare(
   roaring
   GIT_REPOSITORY https://github.com/RoaringBitmap/CRoaring.git
-  GIT_TAG v0.2.66
+  GIT_TAG v2.0.4
   GIT_SHALLOW TRUE)
 
 set(ENABLE_ROARING_TESTS OFF CACHE INTERNAL "")
@@ -40,7 +40,7 @@ file(WRITE main.cpp "
 #include <iostream>
 #include \"roaring/roaring.hh\"
 int main() {
-  Roaring r1;
+  roaring::Roaring r1;
   for (uint32_t i = 100; i < 1000; i++) {
     r1.add(i);
   }
